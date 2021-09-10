@@ -25,6 +25,7 @@ router.post('/register', function (req, res, next) {
         })
       } else {
         bcrypt.hash(req.body.password, 10)
+          // turning the new password given into a string with hash
           .then((hash) => {
             // store the new password in the database
             db.User.create({
@@ -44,7 +45,7 @@ router.post('/register', function (req, res, next) {
 
     })
 
-  // turning the new password given into a string with hash
+
 
 });
 
