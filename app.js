@@ -20,12 +20,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    secret: 'secret',
-    resave: false,
+    secret: 'secret', // used to sign the cookie 
+    resave: false,// update session even w/ no changes made
     saveUninitialized: true,
     cookie: {
-      secure: false,
-      maxAge: 2592000,
+      secure: false, // doesn't accept https req's unless this is true
+      maxAge: 2592000,//time in seconds 
     }
   })
 );

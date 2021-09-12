@@ -25,6 +25,7 @@ router.post('/register', function (req, res, next) {
         })
       } else {
         bcrypt.hash(req.body.password, 10)
+          // turning the new password given into a string with hash
           .then((hash) => {
             // store the new password in the database
             db.User.create({
@@ -44,7 +45,7 @@ router.post('/register', function (req, res, next) {
 
     })
 
-  // turning the new password given into a string with hash
+
 
 });
 
@@ -55,26 +56,26 @@ router.post('/login', async (req, res) => {
       username: req.body.username
     }
   })
-  .then((user)=> {
-    // check user password
-    bcrypt.compare(req.body.password, user.password)
-    .then((success)=> {
-      if (success){
-        // log in user
-        req.session.user = user;
-        res.json({ message: 'successfully logged in'})
-      }else{
-        // incorrect password
-        res.status(402).json({  error: 'incorrect password'})
-      }
+    .then((user) => {
+      // check user password
+      bcrypt.compare(req.body.password, user.password)
+        .then((success) => {
+          if (success) {
+            // log in user
+            req.session.user = user;
+            res.json({ message: 'successfully logged in' })
+          } else {
+            // incorrect password
+            res.status(402).json({ error: 'incorrect password' })
+          }
+        })
     })
-  })
 })
 
 router.get('/logout', (req, res) => {
   req.session.user = null;
   // display message that user has successfully logged out 
-  res.json({ message: 'successfully logged out'})
+  res.json({ message: 'successfully logged out' })
 })
 
 module.exports = router;
