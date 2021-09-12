@@ -25,6 +25,7 @@ router.post('/register', function (req, res, next) {
         })
       } else {
         bcrypt.hash(req.body.password, 10)
+          // turning the new password given into a string with hash
           .then((hash) => {
             // store the new password in the database
             db.User.create({
@@ -44,7 +45,7 @@ router.post('/register', function (req, res, next) {
 
     })
 
-  // turning the new password given into a string with hash
+
 
 });
 
@@ -56,47 +57,25 @@ router.post('/login', async (req, res) => {
     }
   })
     .then((user) => {
-      if (user) {
-        res.status(400).json({
-          error: 'username already in use'
+      // check user password
+      bcrypt.compare(req.body.password, user.password)
+        .then((success) => {
+          if (success) {
+            // log in user
+            req.session.user = user;
+            res.json({ message: 'successfully logged in' })
+          } else {
+            // incorrect password
+            res.status(402).json({ error: 'incorrect password' })
+          }
         })
-        return
-      }
     })
-  const user = await db.User.findOne({
-    where: {
-      username: req.body.username
-    }
-  })
-
-  if (!user) {
-    res.status(400).json({
-      error: 'could not find user with that username'
-    })
-    return
-  }
-  // check password
-  const success = await bcrypt.compare(req.body.password, user.password)
-
-  if (!success) {
-    res.status(401).json({
-      error: 'incorrect password'
-    })
-    return
-  }
-
-  // login 
-  req.session.user = user
-  // respond with success/ error
-  res.json({
-    success: 'Successfully logged in'
-  })
 })
 
 router.get('/logout', (req, res) => {
   req.session.user = null;
   // display message that user has successfully logged out 
-  res.json({ message: 'successfully logged out'})
+  res.json({ message: 'successfully logged out' })
 })
 
 module.exports = router;
