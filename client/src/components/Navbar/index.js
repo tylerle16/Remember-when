@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa'
+
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink } from './NavbarElements';
+
 
 
 const Navbar = () => {
@@ -19,7 +21,7 @@ const Navbar = () => {
                         <NavLinks to='discover'>Discover</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks to='signup'>Sign Up</NavLinks>
+                        <NavLinks as={Link} to='/api/v1/users/register'>Sign Up</NavLinks>
                     </NavItem>
                 </NavMenu>
                 <NavBtn>
