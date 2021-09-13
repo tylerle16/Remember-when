@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import {FooterContainer, FooterWrap,FooterLinksWrapper, FooterLinksContainer, FooterLinkTitle, FooterLink, FooterLinksItems} from './FooterElements'
+
+import React from 'react';
+import { FooterContainer, FooterWrap, FooterLinksContainer, FooterLinksWrapper, FooterLinksItems, FooterLinkTitle, FooterLink } from './FooterElements'
+
 
 const Footer = () => {
     return (
