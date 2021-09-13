@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks } from './NavbarElements';
 
 
@@ -19,7 +20,7 @@ const Navbar = () => {
                         <NavLinks to='discover'>Discover</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks to='signup'>Sign Up</NavLinks>
+                        <NavLinks as={Link} to='/api/v1/users/register'>Sign Up</NavLinks>
                     </NavItem>
                 </NavMenu>
             </NavbarContainer>

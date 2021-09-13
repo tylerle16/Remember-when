@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import {FooterContainer, FooterWrap,FooterLinksWrapper, FooterLinksContainer, FooterLinkTitle, FooterLink, FooterLinksItems} from './FooterElements'
 
 const Footer = () => {
     return (
@@ -13,7 +15,7 @@ const Footer = () => {
                         </FooterLinksItems>
                         <FooterLinksItems>
                             <FooterLinkTitle> User </FooterLinkTitle>
-                            <FooterLink to='/signup'> Sign up </FooterLink>
+                            <FooterLink as={Link} to='/api/v1/users/register'> Sign up </FooterLink>
                         </FooterLinksItems>
                     </FooterLinksWrapper>
                 </FooterLinksContainer>
