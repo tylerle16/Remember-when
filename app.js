@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session')
 const db = require('./models');
+const expressValidator = require('express-validator')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const store = new SequelizeStore({db: db.sequelize})
 store.sync()

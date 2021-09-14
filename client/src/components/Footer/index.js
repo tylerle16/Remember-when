@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { FooterContainer, FooterWrap, FooterLinksContainer, FooterLinksWrapper, FooterLinksItems, FooterLinkTitle, FooterLink } from './FooterElements'
-
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (

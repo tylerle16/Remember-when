@@ -1,4 +1,4 @@
-const {check} = require('express-validator')
+const {body} = require('express-validator')
 
 module.exports = {
     
@@ -12,7 +12,7 @@ module.exports = {
         const password = req.body.password
     // if password and confirm are not the same throw error
     if(password !== confirmPassword){
-        throw Error('Passwords must be the same')
+        throw new Error('Passwords must be the same')
     }
     })
 }
