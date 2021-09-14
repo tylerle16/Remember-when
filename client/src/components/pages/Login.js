@@ -40,7 +40,7 @@ function Login() {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" >
                     <Form.Label>Username</Form.Label>
-                    <Form.Control value={username} onChange={e => setUsername(e.target.value)} type="username" placeholder="Create Username" />
+                    <Form.Control value={username} onChange={e => setUsername(e.target.value)} type="username" placeholder="Username" />
                 </Form.Group>
                 
 
