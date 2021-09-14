@@ -1,5 +1,5 @@
 // import styled from 'styled-components';
-import { Form, Button, Container } from 'react-bootstrap'
+import { Form, Button, Container, Alert } from 'react-bootstrap'
 import { useState } from 'react'
 
 
@@ -10,6 +10,7 @@ function Registration() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,7 +28,13 @@ function Registration() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                console.log(data.errors)
+                if (data.errors) {
+                    setErrors(data.errors)
+                }
+                else {
+                    setErrors([])
+                }
 
 
             })
@@ -35,6 +42,12 @@ function Registration() {
 
     return (
         <Container>
+            {errors.map((error, idx) => {
+                return (
+                    <Alert key={idx} variant='warning'>
+                        {error.msg}</Alert>
+                )
+            })}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" >
                     <Form.Label>Username</Form.Label>
