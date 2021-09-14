@@ -8,7 +8,13 @@ const { check, validationResult, body } = require('express-validator');
 router.post('/register',
   body("email").isEmail(),
   body("username").notEmpty(),
-  body("password").isStrongPassword(),
+  body("password").isStrongPassword({
+    minLength: 6,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 0
+  }),
   check('confirmPassword', 'Passwords do not match').custom((value, { req }) => (value === req.body.password)),
   function (req, res, next) {
     // get the username, password, and email
