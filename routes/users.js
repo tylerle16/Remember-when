@@ -64,8 +64,13 @@ router.post('/register',
   });
 
 router.post('/login',
-body("username")
+body("username").exists(),
+body("password").exists(),
  async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   // first check if the username exists
   db.User.findOne({
     where: {
