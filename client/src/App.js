@@ -7,6 +7,7 @@ import Registration from './components/pages/Registration';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
 import Login from './components/pages/Login';
+import Landing from './components/pages/landing'
 import Homepage from './components/pages/Homepage';
 
 
@@ -19,6 +20,9 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <Homepage />
+        </Route>
+        <Route exact path='/landing'>
+          <Landing />
         </Route>
         <Route path='/api/v1/users/register'>
           <Registration />

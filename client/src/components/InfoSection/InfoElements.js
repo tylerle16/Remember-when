@@ -12,7 +12,7 @@ export const InfoWrapper = styled.div`
     max-width: 100px;
     margin-right: auto;
     margin-left: auto;
-    padding: 0 24px;
+    padding: 20 24px;
     justify-content: center;
 `
 
@@ -32,7 +32,7 @@ export const Column1 = styled.div`
     grid-area: col1;
 `
 
-export const Column1 = styled.div`
+export const Column2 = styled.div`
     margin-bottom: 15px;
     padding: 0 15px;
     grid-area: col2;
@@ -45,7 +45,7 @@ export const TextWrapper = styled.div`
 `
 
 export const TopLine = styled.p`
-    color: #fff;
+    color: black;
     font-size: 16px;
     line-height: 16px;
     font-weight: 700;
