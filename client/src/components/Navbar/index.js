@@ -21,11 +21,11 @@ const Navbar = () => {
                         <NavLinks to='discover'>Discover</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks as={Link} to='/api/v1/users/register'>Sign Up</NavLinks>
+                        <NavLinks  to='/register'>Sign Up</NavLinks>
                     </NavItem>
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink as={Link} to='/api/v1/users/login'>Sign In</NavBtnLink>
+                    <NavBtnLink  to='/login'>Sign In</NavBtnLink>
                 </NavBtn>
             </NavbarContainer>
         </Nav>

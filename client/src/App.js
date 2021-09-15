@@ -20,11 +20,11 @@ function App() {
         <Route exact path='/'>
           <Homepage />
         </Route>
-        <Route path='/api/v1/users/register'>
+        <Route path='/register'>
           <Registration />
         </Route>
-        <Route>
-          <Login path='/api/v1/users/login' />
+        <Route path='/login'>
+          <Login />
         </Route>
       </Switch><br />
       <Footer />
