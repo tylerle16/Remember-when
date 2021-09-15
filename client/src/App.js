@@ -27,10 +27,10 @@ function App() {
     </Switch><br/>
     <Footer/>
     <Route>
-      <UploadForm/>
+      <Title/>
     </Route>
     <Route>
-    <Title/>
+    <UploadForm/>
     </Route>
     </Router>
     
