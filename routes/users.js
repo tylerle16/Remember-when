@@ -63,7 +63,9 @@ router.post('/register',
 
   });
 
-router.post('/login', async (req, res) => {
+router.post('/login',
+body("username")
+ async (req, res) => {
   // first check if the username exists
   db.User.findOne({
     where: {
