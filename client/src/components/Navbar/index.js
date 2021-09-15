@@ -1,13 +1,15 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink } from './NavbarElements';
+
 
 
 const Navbar = () => {
     return (
         <Nav>
             <NavbarContainer>
-                <NavLogo to='/'>Remember When</NavLogo>
+                <NavLogo as={Link} to='/'>Remember When</NavLogo>
                 <MobileIcon>
                     <FaBars />
                 </MobileIcon>
@@ -19,11 +21,11 @@ const Navbar = () => {
                         <NavLinks to='discover'>Discover</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks to='signup'>Sign Up</NavLinks>
+                        <NavLinks as={Link} to='/api/v1/users/register'>Sign Up</NavLinks>
                     </NavItem>
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+                    <NavBtnLink as={Link} to='/api/v1/users/login'>Sign In</NavBtnLink>
                 </NavBtn>
             </NavbarContainer>
         </Nav>

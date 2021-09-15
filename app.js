@@ -4,9 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session')
+const db = require('./models');
+const expressValidator = require('express-validator')
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const store = new SequelizeStore({db: db.sequelize})
+store.sync()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const imagesRouter = require('./routes/images');
 
 var app = express();
 
@@ -20,12 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    secret: 'secret',
-    resave: false,
+    secret: 'secret', // used to sign the cookie 
+    resave: false,// update session even w/ no changes made
     saveUninitialized: true,
     cookie: {
-      secure: false,
-      maxAge: 2592000,
+      secure: false, // doesn't accept https req's unless this is true
+      maxAge: 2592000,//time in seconds 
     }
   })
 );
@@ -33,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
+// app.use('/api/v1/users/images', imagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
