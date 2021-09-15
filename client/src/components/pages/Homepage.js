@@ -1,7 +1,9 @@
 import React from 'react'
+
 import Title from '../Content/Title'
-import ImageProgressBar from '../Content/ImageProgressBar'
+
 import UploadForm from '../Content/UploadForm'
+import {Container} from 'react-bootstrap'
 
 
 
@@ -12,8 +14,10 @@ function Homepage() {
             
             
             <Title/>
+            <Container>
             <UploadForm/>
-            {/* <ImageProgressBar/> */}
+            
+            </Container>
         </div>
     )
 }
