@@ -8,7 +8,6 @@ import { Container, Card } from 'react-bootstrap';
 
 
 import UploadForm from '../Content/UploadForm'
-import {Container} from 'react-bootstrap'
 
 
 
@@ -36,16 +35,7 @@ function Homepage() {
         </Container>
 
         
-        <div>
-            
-            
-            <Title/>
-            <Container>
-            <UploadForm/>
-            
-            </Container>
-        </div>
-
+       
     )
 
 }
