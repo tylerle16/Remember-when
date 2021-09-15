@@ -16,7 +16,7 @@ const Footer = () => {
                         </FooterLinksItems>
                         <FooterLinksItems>
                             <FooterLinkTitle> User </FooterLinkTitle>
-                            <FooterLink as={Link} to='/api/v1/users/register'> Sign up </FooterLink>
+                            <FooterLink to='/register'> Sign up </FooterLink>
                         </FooterLinksItems>
                     </FooterLinksWrapper>
                 </FooterLinksContainer>

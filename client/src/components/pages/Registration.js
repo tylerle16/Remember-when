@@ -1,7 +1,7 @@
 // import styled from 'styled-components';
-import { Form, Button, Container, Alert } from 'react-bootstrap'
+import { Form, Button, Container, Alert, Card } from 'react-bootstrap'
 import { useState } from 'react'
-import {useHistory} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 
 
@@ -29,7 +29,6 @@ function Registration() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data.errors)
                 if (data.errors) {
                     setErrors(data.errors)
                 }
@@ -51,6 +50,8 @@ function Registration() {
                         {error.msg}</Alert>
                 )
             })}
+            <Card>
+                <Card.Body>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" >
                     <Form.Label>Username</Form.Label>
@@ -73,6 +74,12 @@ function Registration() {
                     Register
                 </Button>
             </Form>
+
+                </Card.Body>
+                <Card.Footer>
+                    Already have an account?<Link to="/Login">Sign in here</Link>
+                </Card.Footer>
+                </Card>
         </Container>
     )
 }
