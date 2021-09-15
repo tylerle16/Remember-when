@@ -64,8 +64,10 @@ router.post('/register',
   });
 
 router.post('/login',
+
 body("username").exists(),
 body("password").exists(),
+
  async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
