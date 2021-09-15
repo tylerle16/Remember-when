@@ -1,24 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import InfoSection from "../InfoSection"
 import { homeObjOne, homeObjTwo } from "../InfoSection/Data"
 
-import Navbar from "../Navbar";
-import Footer from "../Footer"
-import InfoSection from "../InfoSection";
+// import Navbar from "../Navbar";
+// import Footer from "../Footer"
 
 const Landing = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggle = () => {
-        setIsOpen(!isOpen)
-    }
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <InfoSection {...homeObjOne}/>
             <InfoSection {...homeObjTwo}/>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
