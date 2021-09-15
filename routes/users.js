@@ -17,7 +17,7 @@ router.post('/register',
   }),
   check('confirmPassword', 'Passwords do not match').custom((value, { req }) => (value === req.body.password)),
   function (req, res, next) {
-    // get the username, password, and email
+    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -25,23 +25,23 @@ router.post('/register',
 
 
 
-    // create a new user
-    // check if the email exist
+    // check if the email already exist
     db.User.findOne({
       where: {
         email: req.body.email
       }
     })
-      .then((user) => {
-        if (user) {
-          res.status(400).json({
+    .then((user) => {
+      if (user) {
+        res.status(400).json({
             error: 'username already exists'
           })
         } else {
+          // turning the new password given into a string with hash
           bcrypt.hash(req.body.password, 10)
-            // turning the new password given into a string with hash
-            .then((hash) => {
-              // store the new password in the database
+          // store the new password in the database
+          .then((hash) => {
+              // create a new user in the database
               db.User.create({
                 username: req.body.username,
                 email: req.body.email,
@@ -50,7 +50,7 @@ router.post('/register',
               })
                 .then((user) => {
                   res.status(201).json({
-                    // respond with a success after fields have been checked for existence
+                    // respond with a success after the user has been successfully created and stored into the database
                     success: 'User created'
                   })
                 })
@@ -69,6 +69,7 @@ body("username").exists(),
 body("password").exists(),
 
  async (req, res) => {
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -80,6 +81,10 @@ body("password").exists(),
     }
   })
     .then((user) => {
+      if(!user){
+        res.status(404).json({ error: 'User does not exist' })
+        return
+      }
       // check user password
       bcrypt.compare(req.body.password, user.password)
         .then((success) => {
