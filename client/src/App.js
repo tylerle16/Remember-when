@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 
 import Navbar from './components/Navbar';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Registration from './components/pages/Registration';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
@@ -17,19 +17,19 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-    <Route path='/'>
-      <Homepage/>
-    </Route>
+        <Route exact path='/'>
+          <Homepage />
+        </Route>
         <Route path='/api/v1/users/register'>
-    <Registration/>
-    </Route>
-    <Route>
-    <Login path='/api/v1/users/login'/>
-    </Route>
-    </Switch><br/>
-    <Footer/>
+          <Registration />
+        </Route>
+        <Route>
+          <Login path='/api/v1/users/login' />
+        </Route>
+      </Switch><br />
+      <Footer />
     </Router>
-    
+
   );
 }
 

@@ -1,8 +1,15 @@
 import React from 'react'
+
 import Title from '../Content/Title'
+
 // import ImageProgressBar from '../Content/ImageProgressBar'
 // import UploadForm from '../Content/UploadForm'
 import { Container, Card, Col, Row } from 'react-bootstrap';
+
+
+import UploadForm from '../Content/UploadForm'
+import {Container} from 'react-bootstrap'
+
 
 
 
@@ -13,6 +20,7 @@ function Homepage() {
 
 
     return (
+
         <Container>
         <Col>
             <Row>
@@ -45,6 +53,18 @@ function Homepage() {
 
 
         </Container>
+
+        
+        <div>
+            
+            
+            <Title/>
+            <Container>
+            <UploadForm/>
+            
+            </Container>
+        </div>
+
     )
 
 }
