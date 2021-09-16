@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Login from './components/pages/Login';
 import Landing from './components/pages/landing'
 import Homepage from './components/pages/Homepage';
+import About from './components/pages/About';
 
 
 function App() {
@@ -28,13 +29,18 @@ function App() {
         {/* <Route path='/api/v1/users/register'> */}
 
         <Route path='/register'>
-
           <Registration />
         </Route>
+
         <Route path='/login'>
           <Login />
         </Route>
-      </Switch><br />
+
+        <Route path='/about'>
+          <About />
+        </Route>
+
+      </Switch>
       <Footer />
     </Router>
 

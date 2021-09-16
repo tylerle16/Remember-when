@@ -17,7 +17,7 @@ router.post('/register',
   }),
   check('confirmPassword', 'Passwords do not match').custom((value, { req }) => (value === req.body.password)),
   function (req, res, next) {
-    
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -31,16 +31,16 @@ router.post('/register',
         email: req.body.email
       }
     })
-    .then((user) => {
-      if (user) {
-        res.status(400).json({
+      .then((user) => {
+        if (user) {
+          res.status(400).json({
             error: 'username already exists'
           })
         } else {
           // turning the new password given into a string with hash
           bcrypt.hash(req.body.password, 10)
-          // store the new password in the database
-          .then((hash) => {
+            // store the new password in the database
+            .then((hash) => {
               // create a new user in the database
               db.User.create({
                 username: req.body.username,
@@ -65,40 +65,40 @@ router.post('/register',
 
 router.post('/login',
 
-body("username").exists(),
-body("password").exists(),
+  body("username").exists(),
+  body("password").exists(),
 
- async (req, res) => {
+  async (req, res) => {
 
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  // first check if the username exists
-  db.User.findOne({
-    where: {
-      username: req.body.username
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  })
-    .then((user) => {
-      if(!user){
-        res.status(404).json({ error: 'User does not exist' })
-        return
+    // first check if the username exists
+    db.User.findOne({
+      where: {
+        username: req.body.username
       }
-      // check user password
-      bcrypt.compare(req.body.password, user.password)
-        .then((success) => {
-          if (success) {
-            // log in user
-            req.session.user = user;
-            res.json({ message: 'successfully logged in' })
-          } else {
-            // incorrect password
-            res.status(402).json({ error: 'incorrect password' })
-          }
-        })
     })
-})
+      .then((user) => {
+        if (!user) {
+          res.status(404).json({ error: 'User does not exist' })
+          return
+        }
+        // check user password
+        bcrypt.compare(req.body.password, user.password)
+          .then((success) => {
+            if (success) {
+              // log in user
+              req.session.user = user;
+              res.json({ message: 'successfully logged in' })
+            } else {
+              // incorrect password
+              res.status(402).json({ error: 'incorrect password' })
+            }
+          })
+      })
+  })
 
 router.get('/logout', (req, res) => {
   req.session.user = null;
