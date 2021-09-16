@@ -25,7 +25,7 @@ function App() {
         <Route exact path='/landing'>
           <Landing />
         </Route>
-        <Route path='/api/v1/users/register'>
+        {/* <Route path='/api/v1/users/register'> */}
 
         <Route path='/register'>
 
