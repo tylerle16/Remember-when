@@ -1,7 +1,7 @@
 
 import { initializeApp } from 'firebase/app';
 import {getAnalytics} from 'firebase/analytics';
-import {getFirestore} from 'firebase/firestore';
+import {getFirestore } from 'firebase/firestore';
 import {getStorage} from 'firebase/storage'
 
 // import 'firebase/storage';
@@ -28,6 +28,8 @@ const analytics = getAnalytics(app);
 // starts storage service
 const projectStorage = getStorage();
 const projectFirestore = getFirestore();
+// fireStore to date and time the image
+// const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
 
 export{projectStorage,projectFirestore};
