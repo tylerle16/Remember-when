@@ -1,14 +1,17 @@
 // import styled from 'styled-components';
-import { Form, Button, Container } from 'react-bootstrap'
+import { Form, Button, Container, Alert, Card } from 'react-bootstrap'
 import { useState } from 'react'
+import {Link, useHistory} from 'react-router-dom'
 
 
 
 function Registration() {
-
+    const history = useHistory();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -20,12 +23,20 @@ function Registration() {
             body: JSON.stringify({
                 username,
                 email,
-                password
+                password,
+                confirmPassword
             })
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.errors) {
+                    setErrors(data.errors)
+                }
+                else {
+                    setErrors([])
+                    history.push('/api/v1/users/login')
+                    
+                }
 
 
             })
@@ -33,6 +44,14 @@ function Registration() {
 
     return (
         <Container>
+            {errors.map((error, idx) => {
+                return (
+                    <Alert key={idx} variant='warning'>
+                        {error.msg}</Alert>
+                )
+            })}
+            <Card>
+                <Card.Body>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" >
                     <Form.Label>Username</Form.Label>
@@ -49,12 +68,18 @@ function Registration() {
                 </Form.Group>
                 <Form.Group className="mb-3" >
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" for='Confirm Password' />
+                    <Form.Control value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} type="password" placeholder="Confirm Password" for='Confirm Password' />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
             </Form>
+
+                </Card.Body>
+                <Card.Footer>
+                    Already have an account?<Link to="/Login">Sign in here</Link>
+                </Card.Footer>
+                </Card>
         </Container>
     )
 }

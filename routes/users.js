@@ -2,54 +2,78 @@ var express = require('express');
 var router = express.Router();
 const db = require('../models');
 const bcrypt = require('bcrypt');
+const { check, validationResult, body } = require('express-validator');
 
 /* GET users listing. */
-router.post('/register', function (req, res, next) {
-  // get the username, password, and email
-  if (!req.body.username || !req.body.password || !req.body.email) {
-    res.status(400).json({
-      error: 'please include username, password, and email'
-    })
-  }
-  // create a new user
-  // check if the email exist
-  db.User.findOne({
-    where: {
-      email: req.body.email
+router.post('/register',
+  body("email").isEmail(),
+  body("username").notEmpty(),
+  body("password").isStrongPassword({
+    minLength: 6,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 0
+  }),
+  check('confirmPassword', 'Passwords do not match').custom((value, { req }) => (value === req.body.password)),
+  function (req, res, next) {
+    
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  })
+
+
+
+    // check if the email already exist
+    db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+    })
     .then((user) => {
       if (user) {
         res.status(400).json({
-          error: 'username already exists'
-        })
-      } else {
-        bcrypt.hash(req.body.password, 10)
-          // turning the new password given into a string with hash
-          .then((hash) => {
-            // store the new password in the database
-            db.User.create({
-              username: req.body.username,
-              email: req.body.email,
-              password: hash
-
-            })
-              .then((user) => {
-                res.status(201).json({
-                  // respond with a success after fields have been checked for existence
-                  success: 'User created'
-                })
-              })
+            error: 'username already exists'
           })
-      }
+        } else {
+          // turning the new password given into a string with hash
+          bcrypt.hash(req.body.password, 10)
+          // store the new password in the database
+          .then((hash) => {
+              // create a new user in the database
+              db.User.create({
+                username: req.body.username,
+                email: req.body.email,
+                password: hash
 
-    })
+              })
+                .then((user) => {
+                  res.status(201).json({
+                    // respond with a success after the user has been successfully created and stored into the database
+                    success: 'User created'
+                  })
+                })
+            })
+        }
+
+      })
 
 
 
-});
+  });
 
-router.post('/login', async (req, res) => {
+router.post('/login',
+
+body("username").exists(),
+body("password").exists(),
+
+ async (req, res) => {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   // first check if the username exists
   db.User.findOne({
     where: {
@@ -57,6 +81,10 @@ router.post('/login', async (req, res) => {
     }
   })
     .then((user) => {
+      if(!user){
+        res.status(404).json({ error: 'User does not exist' })
+        return
+      }
       // check user password
       bcrypt.compare(req.body.password, user.password)
         .then((success) => {

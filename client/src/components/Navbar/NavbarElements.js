@@ -39,6 +39,7 @@ export const NavLogo = styled(LinkR)`
     display: flex;
     align-items: center;
     margin-left: -220px;
+    
     font-weight: bold;
     text-decoration: none;
 `
@@ -63,7 +64,7 @@ export const NavMenu = styled.ul`
     list-style: none;
     text-align: center;
     margin-right: -702px;
-
+    margin-bottom: 1px;
     @media screen and (max-width: 768px) {
         display: none
     }
@@ -102,12 +103,13 @@ export const NavBtnLink = styled(LinkR)`
     white-space: nowrap;
     padding: 10px 22px;
     color: #010606;
-    font-size: 16px;
+    font-size: 12px;
     outline: none;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    
 
     &:hover {
     transition: all 0.2s ease-in-out;

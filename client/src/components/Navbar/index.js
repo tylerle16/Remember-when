@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <Nav>
             <NavbarContainer>
-                <NavLogo to='/'>Remember When</NavLogo>
+                <NavLogo as={Link} to='/'>Remember When</NavLogo>
                 <MobileIcon>
                     <FaBars />
                 </MobileIcon>
@@ -21,11 +21,11 @@ const Navbar = () => {
                         <NavLinks to='discover'>Discover</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks as={Link} to='/api/v1/users/register'>Sign Up</NavLinks>
+                        <NavLinks  to='/register'>Sign Up</NavLinks>
                     </NavItem>
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+                    <NavBtnLink  to='/login'>Sign In</NavBtnLink>
                 </NavBtn>
             </NavbarContainer>
         </Nav>
