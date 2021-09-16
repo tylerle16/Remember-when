@@ -24,7 +24,7 @@ export const homeObjTwo = {
     lightText: false,
     lightTextDesc: true,
     topLine: 'Image Storage',
-    headline: 'Searching made easier through labels',
+    headline: 'Searching made easier with labels',
     description: 'Tags allow users to more efficiently store and later retrieve images, no need scroll',
     buttonLabel: 'Sign up',
     imgStart: false,
