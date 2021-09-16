@@ -18,6 +18,10 @@ const Footer = () => {
                             <FooterLinkTitle> User </FooterLinkTitle>
                             <FooterLink to='/register'> Sign up </FooterLink>
                         </FooterLinksItems>
+                        <FooterLinksItems>
+                        </FooterLinksItems>
+                        <FooterLinksItems>
+                        </FooterLinksItems>
                     </FooterLinksWrapper>
                 </FooterLinksContainer>
             </FooterWrap>
