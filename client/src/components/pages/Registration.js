@@ -34,7 +34,7 @@ function Registration() {
                 }
                 else {
                     setErrors([])
-                    history.push('/api/v1/users/login')
+                    history.push('/login')
                     
                 }
 

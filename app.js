@@ -13,6 +13,7 @@ store.sync()
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const imagesRouter = require('./routes/images');
+const router = require('./routes/index');
 
 var app = express();
 
@@ -58,3 +59,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

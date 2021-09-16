@@ -8,32 +8,29 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      UserId:{
+      UserId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
           key: 'id'
         }
       },
-      time: {
-        type: Sequelize.INTEGER
-      },
       date: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DATE
       },
       url: {
         type: Sequelize.STRING
       },
-      description:{
+      description: {
+        type: Sequelize.TEXT
+      },
+      category: {
         type: Sequelize.STRING
       },
-      category:{
-        type: Sequelize.STRING
-      }, 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }, 
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
