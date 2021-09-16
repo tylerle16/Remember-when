@@ -5,9 +5,10 @@ import React, { useState } from 'react'
 import ImageProgressBar from './ImageProgressBar'
 
 
-const UploadForm = () => {
+const UploadForm = ({onUpload, value}) => {
 const [error, setError] = useState(null)
 const [file, setFile] = useState(null)
+const [url, setUrl] = useState(value || '')
 // image types that can be uploaded
 const types = ['image/png', 'img/jpeg', 'image/jpeg']
 
@@ -26,16 +27,27 @@ if (selected && types.includes(selected.type)){
 }
 
 }
+const handleUpload = (url) => {
+    setUrl(url)
+    onUpload(url)
+}
 
     return (
         <div>
-            <input type="file" onChange={changeHandler}/>
-            {/* function to display errors if selected file is not supported */}
-            <div className="output">
-                {error && <div className="error">{error}</div>}
-                {file && <div>{file.name}</div>}
-                {file && <ImageProgressBar file={file} setFile={setFile}/>}
-            </div>
+            {url?(
+                <img src={url} alt=""/>
+
+            ):(
+                <>
+                <input type="file" onChange={changeHandler}/>
+                {/* function to display errors if selected file is not supported */}
+                <div className="output">
+                    {error && <div className="error">{error}</div>}
+                    {file && <div>{file.name}</div>}
+                    {file && <ImageProgressBar onUpload={handleUpload}file={file} setFile={setFile}/>}
+                </div>
+                </>
+            )}
         </div>
     )
 }
