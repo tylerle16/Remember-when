@@ -19,11 +19,11 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path='/'>
-          <Homepage />
+          <Landing />
         </Route>
 
-        <Route exact path='/landing'>
-          <Landing />
+        <Route exact path='/home'>
+          <Homepage />
         </Route>
         {/* <Route path='/api/v1/users/register'> */}
 
