@@ -5,10 +5,10 @@ import React, { useState } from 'react'
 import ImageProgressBar from './ImageProgressBar'
 
 
-const UploadForm = ({onUpload, value}) => {
+const UploadField = ({onUpload, value}) => {
 const [error, setError] = useState(null)
 const [file, setFile] = useState(null)
-const [url, setUrl] = useState(value || '')
+
 // image types that can be uploaded
 const types = ['image/png', 'img/jpeg', 'image/jpeg']
 
@@ -22,20 +22,20 @@ if (selected && types.includes(selected.type)){
     // function to erase error message if selected file type is supported 
     setError('');
 }else{
-    setFile(null);
+    
     setError('please select an image file (png or jpeg)');
 }
 
 }
 const handleUpload = (url) => {
-    setUrl(url)
+    
     onUpload(url)
 }
 
     return (
         <div>
-            {url?(
-                <img src={url} alt=""/>
+            {value?(
+                <img src={value} alt=""/>
 
             ):(
                 <>
@@ -52,4 +52,4 @@ const handleUpload = (url) => {
     )
 }
 
-export default UploadForm
+export default UploadField
