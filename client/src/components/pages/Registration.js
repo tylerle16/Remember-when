@@ -1,7 +1,8 @@
 // import styled from 'styled-components';
 import { Form, Button, Container, Alert, Card } from 'react-bootstrap'
 import { useState } from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
+import Sidebar from '../Sidebar';
 
 
 
@@ -42,7 +43,15 @@ function Registration() {
             })
     }
 
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
+
     return (
+        <>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
         <Container>
             {errors.map((error, idx) => {
                 return (
@@ -81,6 +90,7 @@ function Registration() {
                 </Card.Footer>
                 </Card>
         </Container>
+        </>
     )
 }
 

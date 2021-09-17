@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
 import Title from '../Content/Title';
 import { homepageContainer } from './HomepageElements';
+import Sidebar from '../Sidebar';
 
 // import ImageProgressBar from '../Content/ImageProgressBar'
 // import UploadForm from '../Content/UploadForm'
@@ -26,11 +27,16 @@ function Homepage() {
             
     }, [])
 
-    
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggle = () => {
+        setIsOpen(!isOpen   )
+    }
 
 
     return (
-        
+        <>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
         <homepageContainer>
         <Row>
         {/* {images.map((image) => { */}
@@ -136,6 +142,7 @@ function Homepage() {
                 
         </Row>
         </homepageContainer>
+        </>
 
         
     
