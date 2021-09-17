@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const homepageContainer = styled.div`
-    display:flex;
+    display: flex;
     flex-flow: column wrap;
-    align-content: flex-start;
+    align-content: space-between;
+    `
 
 
-`

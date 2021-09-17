@@ -35,7 +35,7 @@ export const NavLogo = styled(LinkR)`
     color: aqua;
     justify-content: flex-start;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     display: flex;
     align-items: center;
     margin-left: -220px;
@@ -63,7 +63,7 @@ export const NavMenu = styled.ul`
     align-items: center;
     list-style: none;
     text-align: center;
-    margin-right: -752px;
+    margin-right: -682px;
     margin-bottom: 1px;
     @media screen and (max-width: 768px) {
         display: none
