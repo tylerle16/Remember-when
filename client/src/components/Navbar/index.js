@@ -19,11 +19,11 @@ const Navbar = () => {
                         <NavLinks to='/'>Learn More</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks  to='/register'>Sign Up</NavLinks>
+                        <NavLinks to='/register'>Sign Up</NavLinks>
                     </NavItem>
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink  to='/login'>Sign In</NavBtnLink>
+                    <NavBtnLink to='/login'>Sign In</NavBtnLink>
                 </NavBtn>
             </NavbarContainer>
         </Nav>

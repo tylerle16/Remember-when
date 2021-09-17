@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
 import Title from '../Content/Title';
-import { homepageContainer, cardContainer } from './HomepageElements';
+import { homepageContainer } from './HomepageElements';
 
 // import ImageProgressBar from '../Content/ImageProgressBar'
 // import UploadForm from '../Content/UploadForm'
@@ -13,7 +13,7 @@ import { homepageContainer, cardContainer } from './HomepageElements';
 
 
 function Homepage() {
-
+// set Images 
     const [images, setImages] = useState([])
 
     useEffect(() => {
