@@ -1,14 +1,64 @@
 import React from 'react';
-import { AboutContainer, AboutWrapper, Column1 } from './AboutElements'
-
+import { AboutContainer, AboutWrapper, Name } from './AboutElements'
+import { Card, Col, Row } from 'react-bootstrap'
+import Title from '../Content/Title';
 
 const About = () => {
     return (
+       
         <AboutContainer>
             <AboutWrapper>
-                <Column1>
-                    
-                </Column1>
+                <Row>
+                    <Col>
+                        <Row>
+                            
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/84754487?v=4" className="img-fluid" alt="Movie-Poster" />
+                            <Card.Body>
+                                <Card.Title>
+                                    <Name> Tyler Le </Name>
+                                </Card.Title>
+                                <Card.Link>
+                                    <a href="https://github.com/tylerle16">github</a>
+                                </Card.Link>
+                            </Card.Body>
+                        </Card>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/85178436?v=4" className="img-fluid" alt="Movie-Poster" />
+                            <Card.Body>
+                                <Card.Title>
+                                    <Name> Mickell Gladness</Name>
+                                </Card.Title>
+                                <Card.Link>
+                                    <a href="https://github.com/MickellGlad32">github</a>
+                                </Card.Link>
+                            </Card.Body>
+                        </Card>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/79027880?v=4" className="img-fluid" alt="Movie-Poster" />
+                            <Card.Body>
+                                <Card.Title>
+                                    <Name> William Wilkerson </Name>
+                                </Card.Title>
+                                <Card.Link>
+                                    <a href="https://github.com/williewilkerson27">github</a>
+                                </Card.Link>
+                            </Card.Body>
+                        </Card>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/50714402?v=4" className="img-fluid" alt="Movie-Poster" />
+                            <Card.Body>
+                                <Card.Title>
+                                    <Name>Kevin Leon</Name>
+                                </Card.Title>
+                                <Card.Link>
+                                    <a href="https://github.com/kevinleon01">github</a>
+                                </Card.Link>
+                            </Card.Body>
+                        </Card>
+                        </Row>
+                    </Col>
+                </Row>
             </AboutWrapper>
         </AboutContainer>
     )

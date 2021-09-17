@@ -1,5 +1,5 @@
 // import React from 'react';
-import useStorage from '../hooks/useStorage';
+import useStorage from '../../hooks/useStorage';
 import React, { useEffect } from 'react'
 
 // class ProgressBar extends React.Component
