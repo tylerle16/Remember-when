@@ -10,7 +10,7 @@ import Login from './components/pages/Login';
 import Landing from './components/pages/landing'
 import Homepage from './components/pages/Homepage';
 import About from './components/pages/About';
-
+import ImageGrid from './components/ImageGrid';
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
 
         <Route exact path='/home'>
           <Homepage />
+          <ImageGrid/>
         </Route>
         {/* <Route path='/api/v1/users/register'> */}
 
@@ -34,6 +35,7 @@ function App() {
 
         <Route path='/login'>
           <Login />
+        
         </Route>
 
         <Route path='/about'>
