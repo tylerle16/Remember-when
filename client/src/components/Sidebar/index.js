@@ -3,16 +3,16 @@ import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, Sidebar
 
 const Sidebar = ({ isOpen, toggle }) => {
     return (
-        <SidebarContainer isOpen={isOpen} onClick={toggle}>
+        <SidebarContainer isOpen={isOpen} onClick={toggle} >
             <Icon onClick={toggle}>
                 <CloseIcon />
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to='/home' onClick={toggle}>
+                    <SidebarLink to='/home'>
                         Learn More
                     </SidebarLink>
-                    <SidebarLink to='/register' onClick={toggle}>
+                    <SidebarLink to='/register'>
                         Sign Up
                     </SidebarLink>
                 </SidebarMenu>

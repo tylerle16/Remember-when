@@ -27,16 +27,12 @@ function Homepage() {
             
     }, [])
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggle = () => {
-        setIsOpen(!isOpen   )
-    }
+    
 
 
     return (
         <>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
+        {/* <Sidebar isOpen={isOpen} toggle={toggle} /> */}
         <homepageContainer>
         <Row>
         {/* {images.map((image) => { */}
