@@ -39,10 +39,6 @@ function Homepage() {
 
         <>
         {/* <Sidebar isOpen={isOpen} toggle={toggle} /> */}
-
-
-        
-
         <homepageContainer>
                 <NewImages/>
         <Row>

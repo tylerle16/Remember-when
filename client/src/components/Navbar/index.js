@@ -8,25 +8,17 @@ import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, 
 
 
 
-const Navbar = ({ toggle}) => {
+const Navbar = ({ toggle }) => {
     return (
         <Nav>
             <NavbarContainer>
-
-                
                 <NavLogo to='/home'>Remember When</NavLogo>
                 <MobileIcon onClick={toggle}>
-
-
-                <NavLogo  to='/home'>Remember When</NavLogo>
-
-                <MobileIcon>
-
-                    <FaBars />
+                <FaBars />
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
-                        <NavLinks to='/'>Learn More</NavLinks>
+                        <NavLinks to='/home'>Learn More</NavLinks>
                     </NavItem>
                     <NavItem>
                         <NavLinks to='/register'>Sign Up</NavLinks>
