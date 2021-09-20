@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import NewImages from '../NewImages;
+
+import NewImages from '../NewImages';
+
 import { Container, Card, Col, Row} from 'react-bootstrap';
 import Title from '../Content/Title';
 
