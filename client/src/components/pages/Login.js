@@ -3,6 +3,7 @@ import { Form, Button, Container, Alert, Card } from 'react-bootstrap'
 import { useState } from 'react';
 import { useHistory } from 'react-router'
 import {Link} from 'react-router-dom'
+import Sidebar from '../Sidebar';
 
 
 function Login() {
@@ -39,7 +40,15 @@ function Login() {
             })
     }
 
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
+
     return (
+        <>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
         <Container>
             {errors.map((error, idx) => {
                 return (
@@ -73,6 +82,7 @@ function Login() {
                 </Card>
 
         </Container>
+        </>
     )
 
 }
