@@ -12,7 +12,6 @@ router.get('/', async function (req, res, next) {
 
 router.post('/',
 // check for everything required to make/store an image in the database
-    body("userId").exists(),
     body("url").isURL(),
     body("description").exists(),
     body("category").exists(),
@@ -23,8 +22,8 @@ router.post('/',
             return res.status(400).json({ errors: errors.array() });
         }
         // create the image
-        db.Images.create({
-            userId: req.body.userId,
+        db.Image.create({
+            UserId: req.session.user.id,
             url: req.body.url,
             description: req.body.description,
             category: req.body.category

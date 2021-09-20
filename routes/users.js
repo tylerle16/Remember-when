@@ -3,6 +3,7 @@ var router = express.Router();
 const db = require('../models');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
+const  checkAuth  = require('../seeders/CheckAuth');
 
 
 /* GET users listing. */
@@ -110,6 +111,18 @@ router.get('/logout', (req, res) => {
   // display message that user has successfully logged out 
   res.json({ message: 'successfully logged out' })
 })
+
+// current route
+router.get('/current', checkAuth, async(req,res) => {
+  const user = await db.User.findByPk(req.session.user.id)
+  
+  // take password from user, assign all other to a new userData variable
+  const {password, ...useData} = user.dataValues;
+
+  // respond with success or error
+  res.json(userData)
+})
+
 
 
 

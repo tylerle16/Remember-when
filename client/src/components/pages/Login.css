@@ -1,0 +1,21 @@
+.password-icon{
+    position:absolute;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+}
+.password-container{
+    position:relative;
+    width: 100%;
+}
+.password-container input{
+    padding: 5px 30px 5px 10px;
+    font-size: 20px;
+}
+.password-container img{
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    right: 8px;
+    top: 51px;
+}

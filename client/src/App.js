@@ -1,6 +1,5 @@
 import './App.css';
-import React from 'react';
-
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Registration from './components/pages/Registration';
@@ -13,6 +12,16 @@ import About from './components/pages/About';
 import ImageGrid from './components/ImageGrid';
 
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    fetch('/api/v1/users/current')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.error) {
+          setUser(data)
+        }
+      })
+  }, [])
   return (
     // imported <Title/> and uploadform
 
@@ -25,7 +34,7 @@ function App() {
 
         <Route exact path='/home'>
           <Homepage />
-          <ImageGrid/>
+          <ImageGrid />
         </Route>
         {/* <Route path='/api/v1/users/register'> */}
 
@@ -35,7 +44,7 @@ function App() {
 
         <Route path='/login'>
           <Login />
-        
+
         </Route>
 
         <Route path='/about'>
