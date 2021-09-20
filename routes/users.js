@@ -4,6 +4,7 @@ const db = require('../models');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
 
+
 /* GET users listing. */
 router.post('/register',
   body("email").isEmail(),
@@ -93,11 +94,13 @@ async (req, res) => {
             if (success) {
               // log in user
               req.session.user = user;
+              // res.redirect('/home')
               res.json({ message: 'successfully logged in' })
             } else {
               // incorrect password
               res.status(402).json({ error: 'incorrect password' })
             }
+            
           })
       })
   })
@@ -107,5 +110,7 @@ router.get('/logout', (req, res) => {
   // display message that user has successfully logged out 
   res.json({ message: 'successfully logged out' })
 })
+
+
 
 module.exports = router;
