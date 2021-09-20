@@ -6,6 +6,7 @@ import { Container, Card, Col, Row} from 'react-bootstrap';
 import Title from '../Content/Title';
 
 import { homepageContainer } from './HomepageElements';
+import Sidebar from '../Sidebar';
 
 
 
@@ -36,7 +37,8 @@ function Homepage() {
 
     return (
 
-        
+        <>
+        {/* <Sidebar isOpen={isOpen} toggle={toggle} /> */}
         <homepageContainer>
                 <NewImages/>
         <Row>
@@ -143,6 +145,7 @@ function Homepage() {
                 
         </Row>
         </homepageContainer>
+        </>
 
 
 

@@ -1,4 +1,4 @@
-import img1 from '../images/galleryOne.png'
+import img1 from '../images/img1.svg'
 import img2 from '../images/tag.png'
 
 export const homeObjOne = {
