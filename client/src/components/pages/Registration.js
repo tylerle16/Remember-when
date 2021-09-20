@@ -87,9 +87,9 @@ function Registration() {
                         </Form.Group>
                         <Form.Group className="mb-3, confirm-password-container" >
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} type={isRevealConPassword ? "text" : "password"} placeholder="Confirm Password" for='Confirm Password' /><img title={isRevealConPassword ? "Hide password" : "Show password"} src={isRevealConPassword ? hidePasswordImg : showPasswordImg} onClick={() => setIsRevealConPassword(prevState => !prevState)} alt="" />
+                            <Form.Control value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} type={isRevealConPassword ? "text" : "password"} placeholder="Confirm Password" for='Confirm Password' /><img className="input-group-append" title={isRevealConPassword ? "Hide password" : "Show password"} src={isRevealConPassword ? hidePasswordImg : showPasswordImg} onClick={() => setIsRevealConPassword(prevState => !prevState)} alt="" />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button  variant="primary" type="submit">
                             Register
                         </Button>
                     </Form>

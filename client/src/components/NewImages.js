@@ -1,18 +1,50 @@
-import {useState}from 'react'
+import { useState } from 'react'
 import UploadField from './Content/UploadField'
-import {Form } from 'react-bootstrap'
+import { Container, Form, Button } from 'react-bootstrap'
+import CharacterDropDown from './CharacterDropdown';
 
 function NewImages() {
-    const [image, setImage] = useState('');
+    const [url, setUrl] = useState('');
+    const [description, setDescription] = useState('');
+    const [category, setCategory] = useState('Family');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch('/api/v1/images', {
+            method: 'POST',
+            headers: {
+                'Content-Type':
+                    'application/json'
+            },
+            body: JSON.stringify({
+                url,
+                description,
+                category
+            })
+
+        })
+
+    }
 
     return (
-        <Form>
-                <Form.Group controlId={image}  className="mb-3" >
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group controlId={url} className="mb-3" >
                     <Form.Label> Upload Image Here</Form.Label>
-                    <UploadField value={image} onUpload={(url) => setImage(url)} />
-                    {/* <Form.Control type={} value={images} onUpload={e => setImages(e.target.value)} /> */}
+                    <UploadField value={url} onUpload={(url) => setUrl(url)} />
                 </Form.Group>
+                <Form.Group>
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control value={description} type="description" onChange={(e) => setDescription(e.target.value)} placeholder="Enter description here" />
+                </Form.Group><br />
+                <Form.Group>
+                    <CharacterDropDown value={category} onChange={(e) => setCategory(e.target.value)} />
+                </Form.Group><br />
+                <Button variant="info" type="submit">
+                    Upload
+                </Button>
             </Form>
+        </Container>
     )
 }
 

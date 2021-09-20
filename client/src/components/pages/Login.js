@@ -3,7 +3,13 @@ import { Form, Button, Container, Alert, Card } from 'react-bootstrap'
 import { useState } from 'react';
 import { useHistory } from 'react-router'
 import {Link} from 'react-router-dom'
+
+import showPasswordImg from '../images/showPasswordImg.png';
+import hidePasswordImg from '../images/hidePasswordImg.png' ;
+import './Login.css'
+
 import Sidebar from '../Sidebar';
+
 
 
 function Login() {
@@ -12,6 +18,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
     const history = useHistory();
+    const [isRevealPassword, setIsRevealPassword] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -65,9 +72,9 @@ function Login() {
                 </Form.Group>
 
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3 password-container">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder="Password" />
+                    <Form.Control value={password} onChange={e => setPassword(e.target.value)} type={isRevealPassword ? "text" : "password"} placeholder="Password" /><i className="fa fa-eye password-icon" /><img title={isRevealPassword ? "Hide password" : "Show password"} src={isRevealPassword ? hidePasswordImg : showPasswordImg} onClick={() => setIsRevealPassword(prevState => !prevState)} alt="" />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">

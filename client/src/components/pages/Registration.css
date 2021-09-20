@@ -4,8 +4,8 @@
     right: 10px;
     cursor: pointer;
 }
-.password-container{ 
-    position: relative;
+.password-container{
+    position:relative;
     width: 100%;
 }
 .password-container input{
@@ -17,7 +17,7 @@
     position: absolute;
     width: 20px;
     right: 8px;
-    top: 8px;
+    top: 51px;
 }
 .confirm-password-icon{
     position:absolute;
@@ -28,6 +28,8 @@
 .confirm-password-container{
     position: relative;
     width: 100%;
+    padding-bottom: 10px;
+    
 }
 .confirm-password-container input{
     padding: 5px 30px 5px 10px;
@@ -38,5 +40,8 @@
     position: absolute;
     width: 20px;
     right: 8px;
-    top: 8px;
+    top: 51px;
+}
+.register{
+    padding-top: 15px;
 }
