@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Col, Row } from 'react-bootstrap';
+
+import NewImages from '../NewImages';
+
+import { Container, Card, Col, Row} from 'react-bootstrap';
 import Title from '../Content/Title';
+
 import { homepageContainer } from './HomepageElements';
 import Sidebar from '../Sidebar';
 
-// import ImageProgressBar from '../Content/ImageProgressBar'
-// import UploadForm from '../Content/UploadForm'
+
+
 
 
 
@@ -16,6 +20,7 @@ import Sidebar from '../Sidebar';
 function Homepage() {
 // set Images 
     const [images, setImages] = useState([])
+    
 
     useEffect(() => {
         fetch('/api/v1/images')
@@ -24,16 +29,22 @@ function Homepage() {
                 setImages(data)
                 console.log(data)
             })
-            
+
     }, [])
 
-    
+
 
 
     return (
+
         <>
         {/* <Sidebar isOpen={isOpen} toggle={toggle} /> */}
+
+
+        
+
         <homepageContainer>
+                <NewImages/>
         <Row>
         {/* {images.map((image) => { */}
             {/* return ( */}
@@ -45,7 +56,7 @@ function Homepage() {
                     <Card.Body>
                         <Card.Title>
                             <Title/>
-                            {/* // <UploadForm/> */}
+                            
                         </Card.Title>
                     </Card.Body>
                 </Card>
@@ -140,13 +151,14 @@ function Homepage() {
         </homepageContainer>
         </>
 
-        
-    
+
+
+
     )
 
 }
 
-            // <UploadForm/>
-            // <ImageProgressBar/>
+
+// <ImageProgressBar/>
 
 export default Homepage;

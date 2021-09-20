@@ -3,7 +3,7 @@
 // hooks are reusable functions that you can reuse in your components 
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage'
 import { useState, useEffect} from "react";
-import {projectStorage, } from '../Firebase/config'
+import {projectStorage, projectFirestore} from '../Firebase/config'
 import { serverTimestamp, } from 'firebase/firestore'
 
 
@@ -18,6 +18,7 @@ const useStorage = (file)=>{
     useEffect(()=>{
 // refernces
 const storageRef = ref(projectStorage,file.name);
+// const collectionRef = projectFirestore.collection('images');
 const uploadTask = uploadBytesResumable(storageRef, file)
 uploadTask.on('state_changed', (snap)=>{
     let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
