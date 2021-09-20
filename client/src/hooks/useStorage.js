@@ -18,7 +18,7 @@ const useStorage = (file)=>{
     useEffect(()=>{
 // refernces
 const storageRef = ref(projectStorage,file.name);
-const collectionRef = projectFirestore.collection('images');
+// const collectionRef = projectFirestore.collection('images');
 const uploadTask = uploadBytesResumable(storageRef, file)
 uploadTask.on('state_changed', (snap)=>{
     let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
