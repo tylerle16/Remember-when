@@ -1,8 +1,6 @@
 import './App.css';
 
-import React, { useState } from 'react';
-
-
+import React, { useState,useEffect} from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Registration from './components/pages/Registration';
