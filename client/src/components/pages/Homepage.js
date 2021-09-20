@@ -3,6 +3,9 @@ import NewImages from '../NewImages';
 import { Container, Card, Col, Row} from 'react-bootstrap';
 import Title from '../Content/Title';
 
+import { homepageContainer } from './HomepageElements';
+
+
 
 
 
@@ -12,7 +15,7 @@ import Title from '../Content/Title';
 
 
 function Homepage() {
-
+// set Images 
     const [images, setImages] = useState([])
     
 
