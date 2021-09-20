@@ -29,16 +29,16 @@ function App() {
         </Route>
         {/* <Route path='/api/v1/users/register'> */}
 
-        <Route path='/register'>
+        <Route exact path='/register'>
           <Registration />
         </Route>
 
-        <Route path='/login'>
+        <Route exact path='/login'>
           <Login />
         
         </Route>
 
-        <Route path='/about'>
+        <Route exact path='/about'>
           <About />
         </Route>
 
