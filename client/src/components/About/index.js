@@ -9,7 +9,7 @@ const About = () => {
                 <Row>
                     <Col>
                         <Row>
-                            <Card style={{ width: '18rem' }}>
+                            <Card style={{ width: '18rem', margin: '0.625rem' }}>
                                 <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/84754487?v=4" className="img-fluid" alt="Movie-Poster" />
                                 <Card.Body>
                                     <Card.Title>
@@ -20,7 +20,7 @@ const About = () => {
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
-                            <Card style={{ width: '18rem' }}>
+                            <Card style={{ width: '18rem', margin: '0.625rem' }}>
                                 <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/85178436?v=4" className="img-fluid" alt="Movie-Poster" />
                                 <Card.Body>
                                     <Card.Title>
@@ -31,7 +31,7 @@ const About = () => {
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
-                            <Card style={{ width: '18rem' }}>
+                            <Card style={{ width: '18rem', margin: '0.625rem' }}>
                                 <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/79027880?v=4" className="img-fluid" alt="Movie-Poster" />
                                 <Card.Body>
                                     <Card.Title>
@@ -42,7 +42,7 @@ const About = () => {
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
-                            <Card style={{ width: '18rem' }}>
+                            <Card style={{ width: '18rem', margin: '0.625rem' }}>
                                 <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/50714402?v=4" className="img-fluid" alt="Movie-Poster" />
                                 <Card.Body>
                                     <Card.Title>
