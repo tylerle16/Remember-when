@@ -13,6 +13,9 @@ const CharacterDropDown = ({value, onChange}) => {
             <option value="Lifestyle">Lifestyle</option>
             <option value="Sport">Sport</option>
             <option value="Travel">Travel</option>
+            <option value="Animals">Animals</option>
+            <option value="Entertainment">Entertainment</option>
+
         </Form.Select>
     )
 

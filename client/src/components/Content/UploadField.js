@@ -1,6 +1,6 @@
 /* *************************TYLERS CODE  */ 
 
-import ProgressBar from 'progress'
+
 import React, { useState } from 'react'
 import ImageProgressBar from './ImageProgressBar'
 
