@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom'
 import showPasswordImg from '../images/showPasswordImg.png';
 import hidePasswordImg from '../images/hidePasswordImg.png' ;
 import './Login.css'
-
+import {useDispatch} from 'react-redux'
 import Sidebar from '../Sidebar';
+import { actionLoggedIn } from '../../redux/actions/users';
 
 
 
@@ -19,6 +20,7 @@ function Login() {
     const [errors, setErrors] = useState([]);
     const history = useHistory();
     const [isRevealPassword, setIsRevealPassword] = useState(false);
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -41,6 +43,7 @@ function Login() {
                     setErrors([{ msg: data.error }])
                 }
                 else {
+                    dispatch(actionLoggedIn(data.user))
                     setErrors([])
                     history.push('/');
                 }

@@ -3,7 +3,8 @@ var router = express.Router();
 const db = require('../models');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
-const  checkAuth  = require('../seeders/CheckAuth');
+const checkAuth = require('../seeders/CheckAuth');
+
 
 
 /* GET users listing. */
@@ -71,13 +72,15 @@ router.post('/login',
   body("password").exists(),
 
 
-async (req, res) => {
+  async (req, res) => {
 
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+   
     // first check if the username exists
     db.User.findOne({
       where: {
@@ -95,13 +98,19 @@ async (req, res) => {
             if (success) {
               // log in user
               req.session.user = user;
+              // take password from user and assign all other properties to new userData variable
+              const { password, ...userData } = user.dataValues;
               // res.redirect('/home')
-              res.json({ message: 'successfully logged in' })
+              res.json({
+                success: 'Successfully logged in',
+                // sending back user data that not include the password
+                user: userData
+              })
             } else {
               // incorrect password
               res.status(402).json({ error: 'incorrect password' })
             }
-            
+
           })
       })
   })
@@ -113,11 +122,11 @@ router.get('/logout', (req, res) => {
 })
 
 // current route
-router.get('/current', checkAuth, async(req,res) => {
+router.get('/current', checkAuth, async (req, res) => {
   const user = await db.User.findByPk(req.session.user.id)
-  
+
   // take password from user, assign all other to a new userData variable
-  const {password, ...useData} = user.dataValues;
+  const { password, ...useData } = user.dataValues;
 
   // respond with success or error
   res.json(userData)
