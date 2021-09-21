@@ -1,7 +1,7 @@
 import React from 'react';
 import { AboutContainer, AboutWrapper, Name, Github } from './AboutElements'
 import { Card, Col, Row } from 'react-bootstrap'
-
+import {AiOutlineGithub} from 'react-icons/ai';
 const About = () => {
     return (
         <AboutContainer>
@@ -16,7 +16,7 @@ const About = () => {
                                         <Name> Tyler Le </Name>
                                     </Card.Title>
                                     <Card.Link>
-                                        <a href="https://github.com/tylerle16">github</a>
+                                        <a href="https://github.com/tylerle16"><AiOutlineGithub/></a>
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
@@ -27,7 +27,7 @@ const About = () => {
                                         <Name> Mickell Gladness</Name>
                                     </Card.Title>
                                     <Card.Link>
-                                        <a href="https://github.com/MickellGlad32">github</a>
+                                        <a href="https://github.com/MickellGlad32"><AiOutlineGithub/></a>
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
@@ -38,7 +38,7 @@ const About = () => {
                                         <Name> William Wilkerson </Name>
                                     </Card.Title>
                                     <Card.Link>
-                                        <a href="https://github.com/williewilkerson27">github</a>
+                                        <a href="https://github.com/williewilkerson27"><AiOutlineGithub/></a>
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
@@ -49,7 +49,7 @@ const About = () => {
                                         <Name>Kevin Leon</Name>
                                     </Card.Title>
                                     <Card.Link>
-                                        <Github href="https://github.com/kevinleon01">github</Github>
+                                        <Github href="https://github.com/kevinleon01"><AiOutlineGithub/></Github>
                                     </Card.Link>
                                 </Card.Body>
                             </Card>
