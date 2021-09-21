@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import NewImages from '../NewImages';
 
-import { Container, Card, Col, Row} from 'react-bootstrap';
+import { Container, Card, Col, Row } from 'react-bootstrap';
 import Title from '../Content/Title';
 
 import { homepageContainer } from './HomepageElements';
@@ -18,11 +18,10 @@ import Sidebar from '../Sidebar';
 
 
 function Homepage() {
-// set Images 
+    // set Images 
     const [images, setImages] = useState([])
-    
 
-    useEffect(() => {
+    function fetchImages(data) {
         fetch('/api/v1/images')
             .then(res => res.json())
             .then(data => {
@@ -30,6 +29,9 @@ function Homepage() {
                 console.log(data)
             })
 
+    }
+    useEffect(() => {
+        fetchImages()
     }, [])
 
 
@@ -38,35 +40,33 @@ function Homepage() {
     return (
 
         <>
-        
-        <homepageContainer>
-                <NewImages/>
-        <Row>
-        {images.map((image) => {
-            return ( 
-                <Col>
+
+            <homepageContainer>
+                <NewImages />
                 <Row>
-                <Card style={{ width: '24rem' }}>
-                    <Card.Img variant="top" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthedogman.net%2Fwp-content%2Fuploads%2F2020%2F08%2FRottweiler2.jpg%3Fx70195&f=1&nofb=1" className="img-fluid" alt="Movie-Poster" />
-                    <Card.Body>
-                        <Card.Title>
-                            <Title/>
-                            
-                        </Card.Title>
-                    </Card.Body>
-                </Card>
-                
+                    {images.map((image) => {
+                        return (
+                            <Col>
+                                <Row>
+                                    <Card style={{ width: '24rem' }}>
+                                        <Card.Img variant="top" src={image.url} className="img-fluid" alt="Movie-Poster" />
+                                        <Card.Body>
+                                            <Card.Text>{image.description}</Card.Text>
+
+                                        </Card.Body>
+                                    </Card>
+
+                                </Row>
+                            </Col>
+                        )
+                    }
+                    )
+                    }
+                    )
+
+
                 </Row>
-            </Col>
-            )
-        }
-        )
-    }
-            )
-    
-                
-        </Row>
-        </homepageContainer>
+            </homepageContainer>
         </>
 
 

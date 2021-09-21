@@ -6,7 +6,13 @@ const { check, validationResult, body } = require('express-validator')
 
 router.get('/', async function (req, res, next) {
 //    find all the images in the Postgres user table
-    const images = await db.Images.findAll()
+    const images = await db.Image.findAll({
+        include: [{
+            model: db.User,
+            attributes: ['username']
+        }],
+        order: [['createdAt', 'DESC']]
+    })
     res.send(images)
 });
 

@@ -5,8 +5,10 @@ function checkAuth(req, res, next) {
             error: 'Not logged in'
         })
         return
-    } else {
+    } else if(req.path === '/login') {
         next()
+    }else {
+        res.redirect('/login')
     }
 }
 
