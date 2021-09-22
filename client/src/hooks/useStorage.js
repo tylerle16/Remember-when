@@ -3,8 +3,8 @@
 // hooks are reusable functions that you can reuse in your components 
 import {ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage'
 import { useState, useEffect} from "react";
-import {projectStorage, projectFirestore} from '../Firebase/config'
-import { serverTimestamp, } from 'firebase/firestore'
+import {projectStorage} from '../Firebase/config'
+
 
 
 const useStorage = (file)=>{
