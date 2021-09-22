@@ -111,8 +111,7 @@ function Registration() {
             <br />
             <br />
             <br />
-            <br />
-            <br />
+            
         </Container>
         </>
 
