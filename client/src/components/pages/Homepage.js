@@ -7,6 +7,7 @@ import Title from '../Content/Title';
 
 import { homepageContainer } from './HomepageElements';
 import Sidebar from '../Sidebar';
+import CharacterDropDown from '../CharacterDropdown';
 
 
 
@@ -20,9 +21,15 @@ import Sidebar from '../Sidebar';
 function Homepage() {
     // set Images 
     const [images, setImages] = useState([])
+    const [category, setCategory] = useState('');
 
-    function fetchImages(data) {
-        fetch('/api/v1/images')
+    function fetchImages(category) {
+        let url = '/api/v1/images'
+
+        if (category) {
+            url += '?category=' + category
+        }
+        fetch(url)
             .then(res => res.json())
             .then(data => {
                 setImages(data)
@@ -31,8 +38,8 @@ function Homepage() {
 
     }
     useEffect(() => {
-        fetchImages()
-    }, [])
+        fetchImages(category)
+    }, [category])
 
 
 
@@ -42,13 +49,15 @@ function Homepage() {
         <>
 
             <homepageContainer>
-                <NewImages />
-                <Row>
-                    {images.map((image) => {
-                        return (
-                            <Col>
-                                <Row>
-                                    <Card style={{ width: '24rem' }}>
+                <NewImages /><br />
+                <Container>
+                    <CharacterDropDown value={category} onChange={(e) => setCategory(e.target.value)} /><br/>
+                    <Row>
+                        {images.map((image) => {
+                            return (
+                                <Col xs={12} md={6} lg={4} xl={3} >
+
+                                    <Card className='mb-3' >
                                         <Card.Img variant="top" src={image.url} className="img-fluid" alt="Movie-Poster" />
                                         <Card.Body>
                                             <Card.Text>{image.description}</Card.Text>
@@ -56,16 +65,17 @@ function Homepage() {
                                         </Card.Body>
                                     </Card>
 
-                                </Row>
-                            </Col>
+
+                                </Col>
+                            )
+                        }
                         )
-                    }
-                    )
-                    }
-                    )
+                        }
 
 
-                </Row>
+
+                    </Row>
+                </Container>
             </homepageContainer>
         </>
 
@@ -77,6 +87,6 @@ function Homepage() {
 }
 
 
-// <ImageProgressBar/>
+
 
 export default Homepage;
