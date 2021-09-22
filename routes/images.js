@@ -1,16 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { check, validationResult, body } = require('express-validator')
+const { check, validationResult, body } = require('express-validator');
+const { ResultWithContext } = require('express-validator/src/chain');
 
 
 router.get('/', async function (req, res, next) {
+    let where = null;
+    if(req.query.category){
+        where = {category: req.query.category}
+    }
 //    find all the images in the Postgres user table
     const images = await db.Image.findAll({
         include: [{
             model: db.User,
             attributes: ['username']
         }],
+        where,
         order: [['createdAt', 'DESC']]
     })
     res.send(images)
