@@ -87,10 +87,26 @@ function Login() {
 
                 </Card.Body>
                 <Card.Footer>
-                    Don't have an account?<Link to="/register">Sign up here</Link>
+                    Don't have an account?<Link to="/register">   Sign up here</Link>
                 </Card.Footer>
                 </Card>
-
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />  
+            <br />  
         </Container>
         </>
     )

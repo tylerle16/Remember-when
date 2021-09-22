@@ -85,10 +85,12 @@ function Registration() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control value={password} onChange={e => setPassword(e.target.value)} type={isRevealPassword ? "text" : "password"} placeholder="Password" /><i className="fa fa-eye password-icon" /><img title={isRevealPassword ? "Hide password" : "Show password"} src={isRevealPassword ? hidePasswordImg : showPasswordImg} onClick={() => setIsRevealPassword(prevState => !prevState)} alt="" />
                         </Form.Group>
+                        <p />
                         <Form.Group className="mb-3, confirm-password-container" >
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} type={isRevealConPassword ? "text" : "password"} placeholder="Confirm Password" for='Confirm Password' /><img className="input-group-append" title={isRevealConPassword ? "Hide password" : "Show password"} src={isRevealConPassword ? hidePasswordImg : showPasswordImg} onClick={() => setIsRevealConPassword(prevState => !prevState)} alt="" />
                         </Form.Group>
+                        <p />
                         <Button  variant="primary" type="submit">
                             Register
                         </Button>
@@ -96,10 +98,21 @@ function Registration() {
 
                 </Card.Body>
                 <Card.Footer>
-                    Already have an account?<Link to="/Login">Sign in here</Link>
+                    Already have an account?<Link to="/Login">    Sign in here</Link>
                 </Card.Footer>
 
                 </Card>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </Container>
         </>
 
