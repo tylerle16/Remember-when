@@ -5,7 +5,7 @@ import { actionLoggedOut } from '../../redux/actions/users';
 
 
 
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink } from './NavbarElements';
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink, NavBtnLinkSignout } from './NavbarElements';
 
 
 
@@ -42,7 +42,7 @@ const Navbar = ({ toggle }) => {
                 </NavMenu>
                 {user ? (
                     <NavBtn onClick="handleSignOut">
-                        <NavBtnLink>Sign Out</NavBtnLink>
+                        <NavBtnLinkSignout>Sign Out</NavBtnLinkSignout>
                     </NavBtn>
                 ) : (
                     <NavBtn>

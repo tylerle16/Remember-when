@@ -92,7 +92,9 @@ export const NavLinks = styled(LinkRouter)`
     cursor: pointer;
 
     &.active {
-        border-bottom: 3px solid #01bf71
+        border-bottom: 3px solid #01bf71;
+        
+        
     }
 `
 
@@ -122,6 +124,26 @@ export const NavBtnLink = styled(LinkRouter)`
     &:hover {
     transition: all 0.2s ease-in-out;
     background: navy;
+    color: #fff
+    }
+`
+export const NavBtnLinkSignout = styled(LinkRouter)`
+    border-radius: 50px;
+    background: #fff;
+    white-space: nowrap;
+    padding: 10px 22px;
+    color: #010606;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    
+
+    &:hover {
+    transition: all 0.2s ease-in-out;
+    background: red;
     color: #fff
     }
 `
