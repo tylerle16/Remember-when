@@ -12,7 +12,7 @@ import Login from './components/pages/Login';
 import Landing from './components/pages/landing'
 import Homepage from './components/pages/Homepage';
 import About from './components/pages/About';
-
+import ProtectedRoute from './components/ProtectedRoute';
 import Sidebar from './components/Sidebar';
 
 
@@ -35,9 +35,9 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false)
 
-    const toggle = () => {
-        setIsOpen(!isOpen   )
-    }
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
 
   return (
     // imported <Title/> and uploadform
@@ -49,26 +49,19 @@ function App() {
         <Route exact path='/'>
           <Landing />
         </Route>
-
-        <Route exact path='/home'>
+        <ProtectedRoute exact path='/home'>
           <Homepage />
           <ImageGrid />
-        </Route>
-        {/* <Route path='/api/v1/users/register'> */}
-
+        </ProtectedRoute>
         <Route exact path='/register'>
           <Registration />
         </Route>
-
         <Route exact path='/login'>
           <Login />
-
         </Route>
-
         <Route exact path='/about'>
           <About />
         </Route>
-
       </Switch>
       <Footer />
     </Router>

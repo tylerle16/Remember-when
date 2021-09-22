@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-
 import NewImages from '../NewImages';
-
 import { Container, Card, Col, Row } from 'react-bootstrap';
-import Title from '../Content/Title';
-
 import { homepageContainer } from './HomepageElements';
-import Sidebar from '../Sidebar';
 import CharacterDropDown from '../CharacterDropdown';
+
+
 
 
 
@@ -22,6 +19,8 @@ function Homepage() {
     // set Images 
     const [images, setImages] = useState([])
     const [category, setCategory] = useState('');
+
+
 
     function fetchImages(category) {
         let url = '/api/v1/images'
@@ -41,10 +40,12 @@ function Homepage() {
         fetchImages(category)
     }, [category])
 
-
+    
 
 
     return (
+
+        
 
         <>
 
